@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+ul {
+  margin-top: 10px;
+}
+
+figure {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: #f9f9f9;
+}
+
+figcaption {
+  margin-top: 10px;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.button-group {
+  margin: 15px 0;
+}
+
+.btn {
+  padding: 8px 16px;
+  margin-right: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #bdc3c7;
+  color: white;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #7f8c8d;
+}
+
+.btn.active {
+  background-color: #2980b9;
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #555;
+}
