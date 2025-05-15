@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="description"	content="Data Visualisation Exercise 1"/>
+	<meta name="keywords"		  content="HTML, CSS"/>
+	<meta name="author"			  content="LE DUC DUY"/>
+
+	<title>Task 2.2 D3 Drawing with Data - Bar Chart </title>
+	<script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+	<h1>The D3 Journey start here...</h1>
+
+	<script>
+
+		var w = 500;
+		var h = 100;
+
+		var dataset = [14, 5, 26, 23, 9, 15, 22, 29, 17, 3]
+
+		var svg = d3.select("body")
+					.append("svg")
+					.attr("width", w)
+					.attr("height", h);
+
+		var padding = 1;
+		var barWidth = (w / dataset.length) - padding;
+		var colorScale = d3.scaleLinear()
+							.domain([0, d3.max(dataset)])
+							.range(["lightblue", "darkblue"])
+	
+		svg.selectAll("rect")
+			.data(dataset)
+			.enter()
+			.append("rect")
+			.attr("x", function(d, i) {
+				return i * (barWidth + padding);
+			})
+			.attr("y", function(d) {
+				return h - d * 4;
+			})
+			.attr("fill", function(d){
+				return colorScale(d);
+			})
+
+			.attr("width", barWidth)
+			.attr("height", function(d) {
+				return d * 4;
+			});
+
+		svg.selectAll("text")
+		.data(dataset)
+			.enter()
+			.append("text")
+			.text(function(d) {
+          return d;
+      	})
+      	.attr("x", function(d, i) {
+          	return i * (barWidth + padding) + barWidth / 2;
+      	})
+      	.attr("y", function(d) {
+          	return h - d * 4 - 5;  // slightly above the bar
+      	})
+      	.attr("font-family", "sans-serif")
+      	.attr("font-size", "12px")
+      	.attr("fill", "black")
+      	.attr("text-anchor", "middle");
+
+	</script>
+
+	<br>
+	<bf>
+	<footer style="color:grey">COS30045 Data Visualisation <br>
+		May Semester, 2025.
+	</footer>
+</body>
+</html>
